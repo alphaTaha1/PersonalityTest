@@ -329,7 +329,27 @@ const [competitivePerc, setCompetitivePerc] = useState(0);
             setCalmPerc(Math.round((calm / maxCalm) * 100));            // Update calm percentage
             setIntrovertPerc(Math.round((introvert / maxIntrovert) * 100)); // Update introvert percentage
             setExtrovertPerc(Math.round((extrovert / maxExtrovert) * 100)); // Update extrovert percentage
-            setCompetitivePerc(Math.round((competitive / maxCompetitive) * 100)); // Update competitive percentage
+            setCompetitivePerc(Math.round((competitive / maxCompetitive) * 100));
+            if(angerPerc<0)
+            {
+                setAngerPerc(0)
+            }
+            if(calmPerc<0)
+                {
+                    setCalmPerc(0)
+                }
+                if(introvertPerc<0)
+                    {
+                        setIntrovertPerc(0)
+                    }
+                    if(extrovertPerc<0)
+                        {
+                            setExtrovertPerc(0)
+                        }
+                        if(competitivePerc<0)
+                            {
+                                setCompetitivePerc(0)
+                            }
         };
    
          useEffect(() => {
