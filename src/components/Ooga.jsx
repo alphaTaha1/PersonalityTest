@@ -111,64 +111,207 @@ const [competitivePerc, setCompetitivePerc] = useState(0);
         const handleChoices = (option) => {
 
             
-         
-
-            switch(option) {
+            switch (option) {
                 // Anger-increasing options
                 case "Pizza":
-                case "By following my instincts":
-                case "Energized and excited":
-                case "Anxious and shy":
-                case "Diving into work or projects":
-                case "Independent and self-directed":
-                case "Face-to-face":
-                case "Football":
                     setAnger(anger => anger + 1);                  // Increases anger
                     setCalm(calm => calm - 1);                     // Decreases calm
-                    setExtrovert(extrovert => extrovert + 1);      // Increases extrovert
+                         // Increases extrovert
                     setCompetitive(competitive => competitive + 1); // Increases competitive
                     break;
             
-                // Calm-increasing options
-                case "After careful analysis":
-                case "Comfortable and engaged":
-                case "Collaborative and team-oriented":
-                case "Through texts or messages":
+                case "Burger":
+                    setAnger(anger => anger + 1);                  // Increases anger
+                    setCalm(calm => calm - 1);                     // Decreases calm
+                    break;
+            
+                case "Pasta":
+                    setCalm(calm => calm + 1);                      // Increases calm
+                    break;
+            
+                case "Fries":
+                    setCompetitive(competitive => competitive + 1); // Increases competitive
+                    break;
+            
+                // Hobby options
+                case "Football":
+                    setAnger(anger => anger + 1);                   // Increases anger
+                    setCompetitive(competitive => competitive + 1); // Increases competitive
+                    break;
+            
                 case "Drawing":
+                    setCalm(calm => calm + 1);                      // Increases calm
+                    setIntrovert(introvert => introvert + 1);      // Increases introvert
+                    break;
+            
+                case "Playing Video Games":
+                    setIntrovert(introvert => introvert + (1/2));      // Increases introvert
+                    setCompetitive(competitive => competitive + 1); // Decreases competitive
+                    break;
+            
+                case "Using Social Media":
+                    setExtrovert(extrovert => extrovert + 1); 
+                    setIntrovert(introvert => introvert + 1);     // Increases extrovert
+                    break;
+            
+                // Weekend options
                 case "Relaxing at home":
+                    setCalm(calm => calm + 1);  
+                    setExtrovert(extrovert => extrovert + (1/2));                    // Increases calm
+                    break;
+            
+                case "Exploring the outdoors":
+                    setExtrovert(extrovert => extrovert + 1);  
+                    setIntrovert(introvert => introvert - 1);     // Increases extrovert
+                    break;
+            
+                case "Socializing with friends":
+                    setExtrovert(extrovert => extrovert + 1);      // Increases extrovert
+                    break;
+            
+                case "Engaging in a hobby":
+                    setIntrovert(introvert => introvert + 1);      // Increases introvert
+                    break;
+            
+                // Decision-making options
+                case "By following my instincts":
+                    setAnger(anger => anger + 1);                   // Increases anger
+                    break;
+            
+                case "After careful analysis":
                     setAnger(anger => anger - 1);                   // Decreases anger
                     setCalm(calm => calm + 1);                      // Increases calm
-                    setIntrovert(introvert => introvert - 1);      // Decreases introvert
                     break;
             
-                // Introvert options
-                case "Reserved and observant":
-                case "Anxious and shy":
-                case "Through texts or messages":
-                case "Engaging in a hobby":
-                case "Playing Video Games":
-                    setIntrovert(introvert => introvert + 1);      // Increases introvert
-                    setExtrovert(extrovert => extrovert - 1);      // Decreases extrovert
+                case "By consulting others":
+                    setCalm(calm => calm + 1);                      // Increases calm
                     break;
             
-                // Extrovert options
+                case "Based on past experiences":
+                    setCalm(calm => calm + 1);                      // Increases calm
+                    break;
+            
+                // Social situations options
                 case "Energized and excited":
-                case "Socializing with friends":
-                case "Collaborative and team-oriented":
-                case "Face-to-face":
-                case "Exploring the outdoors":
-                case "Talking it out with friends":               // Added to increase extrovert
                     setExtrovert(extrovert => extrovert + 1);      // Increases extrovert
-                    setIntrovert(introvert => introvert - 1);      // Decreases introvert
+                    break;
+            
+                case "Reserved and observant":
+                    setIntrovert(introvert => introvert + 1); 
+                    setExtrovert(extrovert => extrovert - (1/2));     // Increases introvert
+                    break;
+            
+                case "Comfortable and engaged":
+                    setCalm(calm => calm + 1);                      // Increases calm
+                    break;
+            
+                case "Anxious and shy":
+                    setIntrovert(introvert => introvert + 1);  
+                    setExtrovert(extrovert => extrovert - (1/2));    // Increases introvert
+                    break;
+            
+                // Motivation options
+                case "Achieving personal goals":
                     setCompetitive(competitive => competitive + 1); // Increases competitive
                     break;
             
-                // Countering competitiveness
-                case "Playing Video Games":
-                case "Relaxing at home":
-                case "Engaging in a hobby":
-                case "Drawing":
+                case "Helping others":
+                    setCalm(calm => calm + 1);   
+                    setExtrovert(extrovert => extrovert + (1/2));                   // Increases calm
+                    break;
+            
+                case "Gaining knowledge":
+                    setIntrovert(introvert => introvert + 1);      // Increases introvert
+                    break;
+            
+                case "Building strong relationships":
+                    setExtrovert(extrovert => extrovert + 1); 
+                    setCalm(calm => calm + (1/2)); 
+                         // Increases extrovert
+                    break;
+            
+                // Work style options
+                case "Independent and self-directed":
+                    setIntrovert(introvert => introvert + 1);
+                    setExtrovert(extrovert => extrovert + (1/2));      // Increases introvert
+                    break;
+            
+                case "Collaborative and team-oriented":
+                    setExtrovert(extrovert => extrovert + 1); 
+                    setIntrovert(introvert => introvert - 1);      // Increases extrovert
+                    break;
+            
+                case "Structured and organized":
+                    setCalm(calm => calm + 1);                      // Increases calm
+                    break;
+            
+                case "Flexible and adaptable":
                     setCompetitive(competitive => competitive - 1); // Decreases competitive
+                    break;
+            
+                // Stress handling options
+                case "Exercise and physical activity":
+                    setCalm(calm => calm + 1);                      // Increases calm
+                    break;
+            
+                case "Talking it out with friends":
+                    setExtrovert(extrovert => extrovert + 1); 
+                    setIntrovert(introvert => introvert - 1);     // Increases extrovert
+                    break;
+            
+                case "Meditation and mindfulness":
+                    setCalm(calm => calm + 1);   
+                    setAnger(anger => anger - 1);                   // Increases calm
+                    break;
+            
+                case "Diving into work or projects":
+                    setAnger(anger => anger + 1);                   // Increases anger
+                    setCompetitive(competitive => competitive + 1); // Increases competitive
+                    break;
+            
+                // Movie preferences options
+                case "Comedies and light-hearted films":
+                    setCalm(calm => calm + 1);     
+                    setAnger(anger => anger - 1);                 // Increases calm
+                    break;
+            
+                case "Dramas and emotional stories":
+                    setIntrovert(introvert => introvert + 1); 
+                    setExtrovert(extrovert => extrovert + 1);   
+                    setCalm(calm => calm + 1);   
+                    
+                    // Increases introvert
+                    break;
+            
+                case "Action and adventure":
+                    setCompetitive(competitive => competitive + 1); // Increases competitive
+                    break;
+            
+                case "Documentaries and true stories":
+                    setIntrovert(introvert => introvert + 1);      // Increases introvert
+                    break;
+            
+                // Communication options
+                case "Face-to-face":
+                    setExtrovert(extrovert => extrovert + 1);   
+                    setIntrovert(introvert => introvert - 1 )   // Increases extrovert
+                    break;
+            
+                case "Through texts or messages":
+                    setIntrovert(introvert => introvert + 1);
+                    setExtrovert(extrovert => extrovert - 1);   
+                        // Increases introvert
+                    break;
+            
+                case "On calls":
+                    setIntrovert(introvert => introvert + 1); 
+                    
+                         // Increases introvert
+                    break;
+            
+                case "In group settings":
+                    setExtrovert(extrovert => extrovert + 1);  // Increases extrovert
+                    setIntrovert(introvert => introvert - 1 )    
                     break;
             
                 default:
