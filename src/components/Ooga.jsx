@@ -33,53 +33,52 @@ const [competitivePerc, setCompetitivePerc] = useState(0);
 
 
     const selectOptions = [
-    {
-        question : "which food do you perfer from the bellow given",
-        options : ['Pizza', 'Burger' , 'Pasta', 'Fries'],
-    },
-    {
-        question : "Which of the following hobby are you most interested in",
-        options : ['Footbaall', 'Drawing' , 'Playing Video Games', 'Using Social Media'],
-    },
-   
-    {
-        question: "What is your preferred way to spend a weekend?",
-        options: ['Relaxing at home', 'Exploring the outdoors', 'Socializing with friends', 'Engaging in a hobby'],
-    },
-    {
-        question: "How do you usually make decisions?",
-        options: ['By following my instincts', 'After careful analysis', 'By consulting others', 'Based on past experiences'],
-    },
-   
-    {
-        question: "How do you feel in social situations?",
-        options: ['Energized and excited', 'Reserved and observant', 'Comfortable and engaged', 'Anxious and shy'],
-    },
-    {
-        question: "What motivates you the most?",
-        options: ['Achieving personal goals', 'Helping others', 'Gaining knowledge', 'Building strong relationships'],
-    },
-    {
-        question: "Which of the following best describes your work style?",
-        options: ['Independent and self-directed', 'Collaborative and team-oriented', 'Structured and organized', 'Flexible and adaptable'],
-    },
-    {
-        question: "How do you handle stress?",
-        options: ['Exercise and physical activity', 'Talking it out with friends', 'Meditation and mindfulness', 'Diving into work or projects'],
-    },
-    {
-        question: "What type of movies do you enjoy the most?",
-        options: ['Comedies and light-hearted films', 'Dramas and emotional stories', 'Action and adventure', 'Documentaries and true stories'],
-    },
-    {
-        question: "How do you prefer to communicate with others?",
-        options: ['Face-to-face', 'Through texts or messages', 'On calls', 'In group settings'],
-    },
+        {
+            question: "Which food do you prefer from the options below?",
+            options: ['Pizza', 'Burger', 'Pasta', 'Fries'],
+        },
+        {
+            question: "Which of the following hobbies are you most interested in?",
+            options: ['Football', 'Drawing', 'Playing Video Games', 'Using Social Media'],
+        },
+        {
+            question: "What is your preferred way to spend a weekend?",
+            options: ['Relaxing at home', 'Exploring the outdoors', 'Socializing with friends', 'Engaging in a hobby'],
+        },
+        {
+            question: "How do you usually make decisions?",
+            options: ['By following my instincts', 'After careful analysis', 'By consulting others', 'Based on past experiences'],
+        },
+        {
+            question: "How do you feel in social situations?",
+            options: ['Energized and excited', 'Reserved and observant', 'Comfortable and engaged', 'Anxious and shy'],
+        },
+        {
+            question: "What motivates you the most?",
+            options: ['Achieving personal goals', 'Helping others', 'Gaining knowledge', 'Building strong relationships'],
+        },
+        {
+            question: "Which of the following best describes your work style?",
+            options: ['Independent and self-directed', 'Collaborative and team-oriented', 'Structured and organized', 'Flexible and adaptable'],
+        },
+        {
+            question: "How do you handle stress?",
+            options: ['Exercise and physical activity', 'Talking it out with friends', 'Meditation and mindfulness', 'Diving into work or projects'],
+        },
+        {
+            question: "What type of movies do you enjoy the most?",
+            options: ['Comedies and light-hearted films', 'Dramas and emotional stories', 'Action and adventure', 'Documentaries and true stories'],
+        },
+        {
+            question: "How do you prefer to communicate with others?",
+            options: ['Face-to-face', 'Through texts or messages', 'On calls', 'In group settings'],
+        }
+        
    
     
     ]
     
- 
+    const[questionFade , setQuestionFade] = useState(false)
         const [currentQ, setCurrentQ] = useState(0);
         const {question, options} = selectOptions[currentQ]
         const [finshed, setFinished] = useState(false)
@@ -88,20 +87,20 @@ const [competitivePerc, setCompetitivePerc] = useState(0);
 
         const handleNext = (options) => {
 
-          
+          setQuestionFade(true)
             const newAnswer = [...options]
             newAnswer[currentQ] = selectOptions
             setSelectedOption(newAnswer)
 
-            if(currentQ<selectOptions.length-1)
-                {
-                    setCurrentQ(currentQ+1)
+            
+                if (currentQ < selectOptions.length - 1) {
+                    setCurrentQ(currentQ + 1);
+                } else {
+                    setFinished(true);
+                    checkResult();
                 }
-                else
-                    {
-                    setFinished(true)
-                    checkResult()
-                }
+                setQuestionFade(false); // Fade in
+        
         }
    
 
@@ -359,8 +358,8 @@ const [competitivePerc, setCompetitivePerc] = useState(0);
             />
             )
             :
-            <div className= {`mainGame ${isfade? "fade-out" : " "}`} >
-            <div className="questions">
+            <div className= {`mainGame ${isfade? "fade-out" : "fade-i"}`} >
+            <div className={`questions ${questionFade ? "slidefromRight" : ""}`}>
             <h1 className="questionCounter">{currentQ+1}/{selectOptions.length}</h1>
 
             <div className="actualQuestion">
@@ -372,7 +371,7 @@ const [competitivePerc, setCompetitivePerc] = useState(0);
                 <div>
                     
                     {options.map((option, index,newAnswer) => (
-                    <button id="gameButton" key= {index} onClick= {
+                    <button id="gameButton"   key= {index} onClick= {
                         () => {
                             
                         handleNext(option)

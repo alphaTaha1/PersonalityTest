@@ -6,7 +6,18 @@
   user-select: none;
 }
 
-
+@media (max-width: 768px) {
+  /* Disable all hover effects on mobile devices */
+  *:hover {
+      background-color: initial; /* Reset to original background */
+      color: inherit; /* Reset to inherit text color */
+      text-decoration: none; /* Remove any text decorations */
+      /* Add any other styles to reset hover effects */
+  }
+  #gameButton:hover{
+    background-color: black;
+  }
+}
 /* Animations */
 @keyframes slidefromLeft {
   from{
@@ -339,7 +350,7 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
-
+transition: opacity 0.3s ease;
 
  
  
@@ -369,7 +380,7 @@ background-color: rgb(123, 128, 126);
   width: 100%;
 }
 #gameButton{
- 
+  
   transition: all 0.3s ease;
   display: block;
   margin: 21px auto;
@@ -384,7 +395,7 @@ border-radius: 5px;
     #gameButton:hover
 {
   cursor: pointer;
-  background-color: hsl(100, 90%, 10%);
+  /* background-color: hsl(100, 90%, 10%); */
   transform-origin: center;
 
 }
