@@ -24,7 +24,6 @@ const [fadeOut, isFadeOut] = useState(false)
         return(
           <div onClick={handleVisibility} 
           className={`card ${fadeOut ? 'Fade-out' : ''}`} >
-          <button className="cardText"> START </button>
           <div id="line"></div>
           <p>Press this button to start</p>
         </div>  
