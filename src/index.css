@@ -128,15 +128,23 @@ transition: transform 0.7s ease , opacity 0.5s ease;
   background-repeat: no-repeat;
   box-shadow: 0 9px 18px rgba(0, 0, 0, 0.44);
 
-  height: 300px;
-  width: 250px;
-  border-radius: 20px;
+  height: 320px;
+  width: 280px;
+  border-radius: 13px;
 
   position: absolute;
   top: 50%;
   left: 50%;
   transform:  translate(-50%, -60%);
   animation: slidefromBottom 1s ease-in;
+
+h1{
+  font-size: 1.25rem;
+  color: rgb(245, 245, 249);
+  padding: 10px;
+  text-align: center;
+}
+
   p{
    display: block;
  
@@ -149,11 +157,7 @@ transition: transform 0.7s ease , opacity 0.5s ease;
 
  }
 
- .card:hover{
-  cursor: pointer;
-  transform: translate(-50%,-62%);
 
-   }
  .cardText{
 border: none;
 display: block;
@@ -166,6 +170,50 @@ font-size: 1rem;
 padding: 15px;
 
  }
+/* card buttons  */
+.button1
+{
+  font-size: 1rem;
+
+  display: block;
+  margin: 40px auto 0px;
+width: 93%;
+height: 40px;
+  background-color: rgb(243, 234, 234);
+  color: rgb(6, 4, 4);
+font-weight: 600;
+border-radius: 5px;
+
+}
+.button2
+{
+  font-size: 1rem;
+
+  display: block;
+  margin: 20px auto;
+width: 93%;
+height: 40px;
+  background-color: rgb(128, 123, 123);
+  color: white;
+font-weight: 600;
+border-radius: 5px;
+  
+}
+
+.button3
+{
+  font-size: 1rem;
+  display: block;
+  margin: 20px auto;
+width: 93%;
+height: 40px;
+  background-color: rgb(44, 43, 43);
+  color: white;
+font-weight: 600;
+border-radius: 5px;
+  
+}
+
 
   #discription{ 
   display: flex;
@@ -193,7 +241,7 @@ padding: 15px;
 
  .login {
   z-index: 1;
-  background-color: hsl(30, 6%, 38%);
+  background-color: hsl(24, 4%, 27%);
   height: 230px;
   border: 2px solid black;
   width: 230px;
