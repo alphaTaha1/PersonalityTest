@@ -10,6 +10,7 @@ function Card1()
 
    handleVisibility()
    }
+  
 const [cardActive, isCardActive] = useState(true)
 const [fadeOut, isFadeOut] = useState(false)
 const [ooga, setOpenOoga] = useState(false)
@@ -19,9 +20,10 @@ const [ooga, setOpenOoga] = useState(false)
       setTimeout(
         ()=>
         {
+          
           isCardActive(false)
         }
-        ,200
+        ,0
       )
      
     }
@@ -35,7 +37,7 @@ const [ooga, setOpenOoga] = useState(false)
           <div className="card">
             <h1>Select any of the following to continue playing</h1>
             <button onClick={openOoga} className="button1">Personality Tests</button>
-            <button className="button2">IQ Test</button>
+            <button className="button2">IQ Test (Under Develeopment)</button>
             <button className="button3">More coming soon</button>
 
 

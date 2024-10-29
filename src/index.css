@@ -6,18 +6,7 @@
   user-select: none;
 }
 
-@media (max-width: 768px) {
-  /* Disable all hover effects on mobile devices */
-  *:hover {
-      background-color: initial; /* Reset to original background */
-      color: inherit; /* Reset to inherit text color */
-      text-decoration: none; /* Remove any text decorations */
-      /* Add any other styles to reset hover effects */
-  }
-  #gameButton:hover{
-    background-color: black;
-  }
-}
+
 /* Animations */
 @keyframes slidefromLeft {
   from{
@@ -100,17 +89,11 @@ padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  h2{
-    font-size: 1rem;
-    position: absolute;
-    right: 20px;
-      }
+
 
 }
-header h2:hover{
-       color: grey; 
-       cursor: pointer;
-}
+
+/* selection card */
  .card{
 opacity: 1;
 
@@ -122,7 +105,7 @@ transition: transform 0.7s ease , opacity 0.5s ease;
   margin: auto;
   margin-top: 50px;
   /* background-image: url(back.jpg);  */
-  background-color: black;
+  background-color: rgb(5, 5, 5);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -213,7 +196,9 @@ font-weight: 600;
 border-radius: 5px;
   
 }
-
+.button1 , .button2 , .button3 :hover{
+  cursor: pointer;
+}
 
   #discription{ 
   display: flex;
@@ -238,7 +223,7 @@ border-radius: 5px;
   opacity: 80%;
  }
 
-
+/* Username component */
  .login {
   z-index: 1;
   background-color: hsl(24, 4%, 27%);
@@ -249,7 +234,7 @@ border-radius: 5px;
    top: 50%;
   left: 50%;
   border-radius: 10px;
- transform: translate(-50%,-30%);
+ transform: translate(-50%,-50%);
  display: flex;
  flex-direction: column;
  box-shadow: 0 9px 18px rgba(0, 0, 0, 0.8);
@@ -279,11 +264,11 @@ button
 {
   display: block;
   border-radius: 4px;
-  margin:10px auto;
+  margin:10px auto ;
   height:30px;
   width: 207px;
   font: 1em sans-serif;
-margin-bottom: 20px;
+margin-bottom: 6px;
   background-color: rgb(255, 255, 255);
 }
 
@@ -294,6 +279,16 @@ button:hover{
 
 }
 
+.alert{
+  opacity: 0;
+  font-size: 0.8rem;
+  margin-top: 0;
+  text-align: center;
+  color: hsl(0, 100%, 46%);
+}
+.setAlert{
+  opacity: 1;
+}
 #preferNotsayButton{
   position: absolute;
   top:80%;
@@ -329,15 +324,15 @@ input{
   opacity: 0;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
 
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-40%);
   padding: 20px;
   color: beige;
   border-radius: 10px;
-  min-height: 200px;
-  width: 300px;
+  min-height: 150px;
+  width: 390px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -353,9 +348,8 @@ background-repeat: no-repeat;
 animation: fade-in  1s forwards;
 
 /* cross button */
-button
-{
-  
+
+.crossButton{
   margin: auto;
   position: absolute;
   top: 20px;
@@ -391,13 +385,13 @@ button:hover{
 
 
 /* main question class */
-
+/* ooga component */
 .mainGame{
 
 position: absolute;
 top: 50%;
 left: 50%;
-transform: translate(-50%,-50%);
+transform: translate(-50%,-40%);
 transition: opacity 0.3s ease;
 
  
@@ -406,7 +400,7 @@ transition: opacity 0.3s ease;
 .questions
 {
   outline: black 2px solid;
-  height: 330px;
+  height: 300px;
   width: 280px;
   border-radius: 10px;
   animation: slidefromLeft  1s forwards;
@@ -474,16 +468,20 @@ border-radius: 5px;
     .Result {
       opacity: 1; /* Change this to 1 to make it visible */
       box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
-      margin: 100px auto;
-      padding: 20px;
+
+      padding: 14px;
       color: rgb(254, 254, 254);
       border-radius: 10px;
-      height: auto; /* Change height to auto to fit content */
+      height: 320px; /* Change height to auto to fit content */
       width: 300px;
       display: flex;
       flex-direction: column;
       background-color: hsl(0, 0%, 10%);
       animation: fade-in 1s forwards;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-40%);
   }
   
   .heading {
@@ -499,14 +497,236 @@ border-radius: 5px;
       padding: 5px 0; /* Add some padding for spacing */
       font-size: 1rem; /* Adjust font size if needed */
   }
-  #againButton{
+  .resultButtons{
     border-radius: 5px;
     padding: 5px;
     margin: 5px 0 0px;
    font-size: 1rem;
     font-weight: 600;
   }
-  #againButton:hover{
+  .resultButtons:hover{
     cursor: pointer;
     background-color: hsl(0, 0%, 85%);
+  }
+  .tryAgain{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    opacity: 1; /* Change this to 1 to make it visible */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+  
+    padding: 20px;
+    color: rgb(254, 254, 254);
+    border-radius: 10px;
+    height: auto; /* Change height to auto to fit content */
+    width:   200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(0, 0%, 10%);
+    animation: fade-in 1s forwards;
+  }
+  .tryAgainButtons{
+   
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0 0px;
+   font-size: 1rem;
+    font-weight: 600;
+  }
+  .tryAgainButtons:hover{
+    background-color: hsl(0, 0%, 90%);
+    color: black;
+  }
+  .tryAgainCrossButton{
+    margin:auto auto 10px ;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: rgb(186, 186, 204);
+    color: rgb(0, 0, 0);
+    z-index: 2;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;           
+    align-items: center;     
+    justify-content: center;
+    cursor: pointer;
+    line-height: 25px;
+  }
+  .tryAgainButtons:hover{
+    cursor: pointer;
+  }
+
+  .container{
+    z-index: 1;
+  background-color: hsl(60, 1%, 13%);
+  height: 330px;
+  border: 2px solid black;
+  width: 330px;
+  position: absolute;
+   top: 50%;
+  left: 50%;
+  border-radius: 10px;
+ transform: translate(-50%,-40%);
+ display: flex;
+ flex-direction: column;
+ box-shadow: 0 9px 18px rgba(0, 0, 0, 0.8);
+  }
+  .returnToMainButton1{
+    background-color: hsl(0, 0%, 85%);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+   transform: translate(-50%,500%);
+    width: auto;
+    height: 25px;
+    /* bottom: px;  */
+
+  }
+  .returnToMainButton:hover{
+background-color: rgb(160, 153, 153);
+transition: all 0.5s ease;
+
+  }
+  .saveCards{
+color: black;
+  }
+  .emptyContainer{
+    z-index: 0;
+  background-color: hsl(60, 1%, 13%);
+  color: antiquewhite;
+  height: 190px;
+  /* border: 2px solid black; */
+  width: 400px;
+  position: absolute;
+   top: 50%;
+  left: 50%;
+  border-radius: 10px;
+ transform: translate(-50%,-50%);
+ border: 2px solid rgb(112, 61, 61);
+ /* display: flex; */
+ flex-direction: column;
+ box-shadow: 0 9px 18px rgba(0, 0, 0, 0.8);
+ span{
+  color: rgb(89, 48, 48);
+ }
+ 
+   h1{
+display: block;
+margin: auto;
+text-align: center;
+/* border: solid 2px black; */
+padding: 10px;
+   }
+  }
+  .returnToMainButton2{
+    background-color: hsl(0, 16%, 37%);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+   transform: translate(-50%,240%);
+    width: auto;
+    height: 25px;
+    /* bottom: px;  */
+  
+  }
+  .returnToMainButton2:hover{
+    cursor: pointer;
+  }
+  .crossInReturnToMainButton{
+    margin: auto;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 25px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: rgb(89, 89, 230);
+    z-index: 2;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;           
+    align-items: center;     
+    justify-content: center;
+    cursor: pointer;
+    line-height: 25px;
+  }
+  #cardInSaveInfo{
+    font-size: 1rem;
+
+  display: block;
+  margin: 33px auto 0px;
+width: 93%;
+height: 55px;
+  background-color: rgb(17, 16, 16);
+  color: rgb(6, 4, 4);
+font-weight: 600;
+border-radius: 5px;
+padding: auto;
+border: 2px solid hsl(0, 2%, 21%);
+h1{
+  font-size: 0.7rem;
+  position: absolute;
+  top: 64px;
+  left: 19px;
+color: rgb(250, 247, 247);
+}
+
+span{
+  color: rgb(122, 58, 58);
+}
+h2{
+  position: absolute;
+  top: 20px;
+  color: wheat;
+  border-width: 3px;
+}
+  }
+  #cardInSaveInfo:hover{
+background-color: rgb(90, 90, 84);
+transition: all 0.4s ease;
+  }
+  .alertCard{
+    position: absolute;
+    height: 11vh;
+    text-align: center;
+    font-size: 0.7em;
+    width: 80vw;
+    border-radius: 5px;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: bisque;
+    background-color: black;
+
+  }
+  /* .crossAlertButton{
+    width: 15px;
+    height: 15px;
+    font-size: 2rem;
+    font-weight: 600;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+
+  } */
+  @media (max-width: 480px) {
+    #Greetings{
+  
+      height: 450px;
+      width: 290px;
+ 
+    }
   }

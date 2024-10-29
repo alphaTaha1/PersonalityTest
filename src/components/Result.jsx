@@ -1,11 +1,21 @@
-import Ooga from "./Ooga"
-import App from "../App";
-import { useState } from "react";
-import Username from "./Username";
+
+import { useState ,useContext} from "react";
+import TryAgain from "./tryAgain";
+import SaveInfo from "./SaveInfo";
+import { UserContext } from "./Username"; 
+
 function Result({angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc})
 {
+    const { isGuest } = useContext(UserContext);
     const [showMainMenu, setShowMainMenu] = useState(false);
-
+    const [infoSaved ,setInfoSaved] = useState(false)
+    const returnToSaveInfo = () =>
+    {
+        return(
+            setInfoSaved(true)
+            
+        )
+    }
    const returnToMainMenu =() =>
     {
        
@@ -16,7 +26,36 @@ function Result({angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc
     if(showMainMenu)
     {
         return(
-           <Username />
+            <TryAgain
+            angerPerc={angerPerc} 
+            calmPerc={calmPerc} 
+            competitivePerc={competitivePerc} 
+            introvertPerc={introvertPerc} 
+            extrovertPerc={extrovertPerc} 
+        />
+        )
+    }
+    if(infoSaved && !isGuest)
+    {return(
+        <SaveInfo  infoSaved={true}
+        angerPerc={angerPerc} 
+        calmPerc={calmPerc} 
+        competitivePerc={competitivePerc} 
+        introvertPerc={introvertPerc} 
+        extrovertPerc={extrovertPerc} 
+    
+        />
+
+    )
+    }
+    if(isGuest)
+    {
+        return(
+            <>
+            <Result />
+           
+            </>
+            
         )
     }
     return (
@@ -42,7 +81,10 @@ function Result({angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc
                 <span>Extrovert:</span>
                 <span>{extrovertPerc}%</span>
             </div>
-            <button id="againButton" onClick={returnToMainMenu}>Try again?</button>
+            
+            <button className="resultButtons" onClick={returnToSaveInfo} >Save Info </button>
+            <button className="resultButtons" onClick={returnToMainMenu}>Try again</button>
+        
         </div>
     );
 

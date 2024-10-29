@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect,useContext } from "react"
 import Result from "./Result";
 
 
@@ -8,11 +8,6 @@ let maxIntrovert = 5;
 let maxExtrovert = 5;
 let maxCompetitive = 3;
 
-let angerPerc = 0;
-let calmPerc = 0;
-let extrovertPerc = 0;
-let introvertPerc = 0;
-let competitivePerc =0;
 function Ooga()
 {    
  const [anger, setAnger] = useState(0);
@@ -358,7 +353,7 @@ const [competitivePerc, setCompetitivePerc] = useState(0);
             />
             )
             :
-            <div className= {`mainGame ${isfade? "fade-out" : "fade-i"}`} >
+            <div className= {`mainGame ${isfade? "fade-out" : "fade-in"}`} >
             <div className={`questions ${questionFade ? "slidefromRight" : ""}`}>
             <h1 className="questionCounter">{currentQ+1}/{selectOptions.length}</h1>
 

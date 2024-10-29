@@ -23,7 +23,7 @@ if(isVisible)
     return  (
         <div id="Greetings" className= {`${isFadeOut ? 'Fade-out' : " "} `} >
             <p>
-     <button onClick={handleVisibility}>
+     <button  className="crossButton" onClick={handleVisibility}>
        <h1>X</h1>
      </button>
 
