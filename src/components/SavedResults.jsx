@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import Username from "./Username";
 
 function SavedResults() {
   const [Data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [main,setMain] = useState(false)
 
   useEffect(() => {
     try {
@@ -33,9 +35,19 @@ function SavedResults() {
 //       <p>Extrovert: {Data.extrovertPerc}%</p>
 //     </div>
 //   );
-
+const returnToMain = () =>
+{
+    setMain(true)
+}
+if(main)
+{
+    return(
+        <Username/>
+    )
+}
   return (
     <div className="Result">
+
         <h2 id="heading">RESULTS</h2>
         <div className="resultLine">
             <span>Calm:</span>
@@ -56,7 +68,10 @@ function SavedResults() {
         <div className="resultLine">
             <span>Extrovert:</span>
             <span>{Data.extrovertPerc}%</span>
+            
         </div>
+        <button onClick={returnToMain} className="crossInSaved">Return to main menu</button>
+
         </div>
 
 )

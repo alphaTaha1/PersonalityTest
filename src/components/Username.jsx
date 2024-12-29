@@ -52,7 +52,7 @@ function Username() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button type="submit">Submit</button>
+          <button type="submit"><b className="buttonText">Submit </b> </button>
           <h1 className={`alert ${isAlert ? "setAlert" : ""}`}>Enter name first!</h1>
           <button id="preferNotsayButton" onClick={toggleLogin}>
             Prefer not say
