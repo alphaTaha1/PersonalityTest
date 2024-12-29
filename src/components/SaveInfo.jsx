@@ -2,30 +2,48 @@ import { useState,useContext } from "react";
 import Result from "./Result";
 import Username, { GuestContext } from "./Username";
 import { UserContext} from "./Username";
-function SaveInfo({infoSaved,angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc}) {
+import SavedResults from "./SavedResults";
+
+function SaveInfo({infoSaved,userData}) {
 
     const {name} = useContext(UserContext)
     const {isGuest} = useContext(GuestContext)
    
     const [returnResult, setReturnResult] = useState(false)
+    const [returnToSavedResults, setReturnToSavedResults] = useState(false)
 const [mainMenu,setMainMenu] = useState(false)
+
+// function to return to main menu
    const returnToMainMenu =() =>
     {
         setMainMenu(true)
     }
+    // function to return to results
 const returnToResults = () =>
 {
 setReturnResult(true)
 }
+
+// function to open saved results
+const openSavedResults =()=>
+    {
+        setReturnToSavedResults(true)
+    } 
+
+
+if(returnToSavedResults)
+{
+    return(
+        <SavedResults />
+    )
+}
+
 if(returnResult)
 {
     return(
         <Result 
-        angerPerc={angerPerc} 
-        calmPerc={calmPerc} 
-        competitivePerc={competitivePerc} 
-        introvertPerc={introvertPerc} 
-        extrovertPerc={extrovertPerc} 
+     userData = {userData}
+    savedInfo = {infoSaved}
     />
     )
 }
@@ -41,7 +59,7 @@ if(returnResult)
         return(
 <div className="container">
     <button className="crossInReturnToMainButton" onClick={returnToResults}>X</button>
-<button id="cardInSaveInfo"><h2><span>Name</span> : {name} </h2>
+<button onClick={openSavedResults} id="cardInSaveInfo"><h2><span>Name</span> : {name} </h2>
     <h1>Saved personality results!</h1>
 </button>
 <button className="returnToMainButton1" onClick={returnToMainMenu}>Return to main menu</button>

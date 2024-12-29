@@ -3,7 +3,7 @@ import Ooga from "./Ooga"
 import Username from "./Username"
 import Result from "./Result"
 
-function TryAgain({angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc})
+function TryAgain({userData})
 {
     const [sameName , setSameName] = useState(false)
     const [diffName , setDiffName] = useState(false)
@@ -37,11 +37,7 @@ else if(diffName)
 else if(Cross){
     return(
         <Result 
-        angerPerc={angerPerc} 
-        calmPerc={calmPerc} 
-        competitivePerc={competitivePerc} 
-        introvertPerc={introvertPerc} 
-        extrovertPerc={extrovertPerc} 
+      userData = {userData}
     />
     )
 }
