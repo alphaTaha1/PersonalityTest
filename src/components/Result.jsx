@@ -2,12 +2,13 @@
 import { useState ,useContext} from "react";
 import TryAgain from "./tryAgain";
 import SaveInfo from "./SaveInfo";
-import Username, { UserContext } from "./Username"; 
 import SavedResults from "./SavedResults";
-
+import { userContext , guestContext } from "./context";
+import Username from "./Username";
 function Result({angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc})
 {
-    const { isGuest } = useContext(UserContext);
+    const { isGuest } = useContext(guestContext);
+    const {username} = useContext(userContext)
     const [showMainMenu, setShowMainMenu] = useState(false);
     const [infoSaved ,setInfoSaved] = useState(false)
     const data = {
@@ -17,7 +18,7 @@ function Result({angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc
 
     const returnToSaveInfo = () =>
     {
-        localStorage.setItem("UserResults", JSON.stringify(data))
+        // localStorage.setItem("UserResults", JSON.stringify(data))
 
             setInfoSaved(true)
     }
@@ -32,14 +33,14 @@ function Result({angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc
     }
     if(showMainMenu)
     {
-        return(
-            <TryAgain
-            userData = {data}
-        />
-        )
+        return  <TryAgain  userData = {data}/>
+        
     }
     if(infoSaved && !isGuest)
-    {return(
+    {
+        console.log("inside the result")
+        console.log(isGuest)
+        return(
         <Username infoSaved={true}
     
         />
@@ -50,7 +51,7 @@ function Result({angerPerc, calmPerc,competitivePerc,introvertPerc,extrovertPerc
     {
         return(
             <>
-            <Result />
+            <SaveInfo />
            
             </>
             

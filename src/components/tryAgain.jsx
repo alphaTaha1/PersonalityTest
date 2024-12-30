@@ -37,7 +37,11 @@ else if(diffName)
 else if(Cross){
     return(
         <Result 
-      userData = {userData}
+        angerPerc={userData.angerPerc}
+        calmPerc={userData.calmPerc}
+        competitivePerc={userData.competitivePerc}
+        introvertPerc={userData.introvertPerc}
+        extrovertPerc={userData.extrovertPerc}
     />
     )
 }

@@ -1,13 +1,13 @@
 import { useState,useContext } from "react";
 import Result from "./Result";
-import Username, { GuestContext } from "./Username";
-import { UserContext} from "./Username";
+import { userContext ,guestContext} from "./context";
 import SavedResults from "./SavedResults";
+import Username from "./Username";
 
 function SaveInfo({infoSaved,userData}) {
 
-    const {name} = useContext(UserContext)
-    const {isGuest} = useContext(GuestContext)
+    const {username} = useContext(userContext)
+    const {isGuest} = useContext(guestContext)
    
     const [returnResult, setReturnResult] = useState(false)
     const [returnToSavedResults, setReturnToSavedResults] = useState(false)
@@ -59,7 +59,7 @@ if(returnResult)
         return(
 <div className="container">
     <button className="crossInReturnToMainButton" onClick={returnToResults}>X</button>
-<button onClick={openSavedResults} id="cardInSaveInfo"><h2><span>Name</span> : {name} </h2>
+<button onClick={openSavedResults} id="cardInSaveInfo"><h2><span>Name</span> : {username} </h2>
     <h1>Saved personality results!</h1>
 </button>
 <button className="returnToMainButton1" onClick={returnToMainMenu}>Return to main menu</button>

@@ -1,9 +1,11 @@
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Card1 from "./Card1";
-
+import { guestContext, userContext } from "./context";
 function Greetings({name})
 {
+    const {isGuest} = useContext(guestContext)
+    const {username} = useContext(userContext)
     const [isVisible, setVisible] = useState(true)
     const [isFadeOut , setFadeOut] = useState(false)
 
@@ -27,8 +29,9 @@ if(isVisible)
        <h1>X</h1>
      </button>
 
-        Welcome, {name || "Guest"} <br /><br />    
-     
+        Welcome, {username || "Guest"} <br /><br />    
+        { console.log(isGuest)}
+
         <b>
         Discover Your Personality Type! <br />
         </b>
